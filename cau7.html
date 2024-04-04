@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function mergeObjects(...objects){
+            let merge = {};
+            for (const obj of objects) {
+                for (const key in obj) {
+                    if (obj[key] !== undefined) {
+                        merge[key] = obj[key];
+                    }
+                }
+            }
+            return merge;
+        }
+        let obj1 = {
+            id : 1,
+            name : 'anh'
+        };
+        let obj2 = {
+            id : 2,
+            name : 'quang'
+        };
+        console.log(mergeObjects(obj1 ,obj2));
+    </script>
+</body>
+</html>

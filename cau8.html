@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function insertArrayAt(arr1, arr2, position) {
+    if (position < 0 || position > arr1.length) {
+        console.log("Vị trí không hợp lệ.");
+        return;
+    }
+    let result = [];
+    let index = 0;
+    for (let item of arr1) {
+        if (index === position) {
+            for (let val of arr2) {
+                result.push(val);
+            }
+        }
+        result.push(item);
+        index++;
+    }
+    arr1.length = 0;
+    for (let val of result) {
+        arr1.push(val);
+    }
+}
+let array1 = [1, 2, 3, 7, 8];
+let array2 = [4, 5, 6];
+insertArrayAt(array1, array2, 3);
+
+console.log(array1);
+insertArrayAt(array1, array2, 10);
+
+    </script>
+</body>
+</html>

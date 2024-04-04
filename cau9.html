@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function zipArrays(...arrays) {
+    const length = arrays[0].length;
+    for (const array of arrays) {
+        if (array.length !== length) {
+            console.log("Các mảng không có độ dài bằng nhau.");
+            return;
+        }
+    }
+    const result = [];
+    for (let i = 0; i < length; i++) {
+        const innerArray = [];
+        for (const array of arrays) {
+            innerArray.push(array[i]);
+        }
+        result.push(innerArray);
+    }
+
+    return result;
+}
+const arr1 = [1, 2, 3];
+const arr2 = ['a', 'b', 'c'];
+const arr3 = [true, false, true];
+const zippedArrays = zipArrays(arr1, arr2, arr3);
+console.log(zippedArrays);
+const arr4 = ['x', 'y'];
+const arr5 = ['p', 'q', 'r'];
+zipArrays(arr1, arr4);
+zipArrays(arr1, arr5);
+    </script>
+</body>
+</html>
